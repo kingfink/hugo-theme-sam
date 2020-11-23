@@ -23,16 +23,35 @@
 
     <nav role="navigation" class="flex-container" id="splash">
 
+        {{ if .Site.Params.headline }}
+        {{ range .Site.Params.headline }}
+          <p class="big-link">{{.text}}</p>
+        {{ end }}
+        {{ end }}
+
+        {{ if .Site.Params.headline }}
+        {{ range .Site.Params.subTitle }}
+          <p class="subtitle-link">{{.text}}</p>
+
+        {{ end }}
+        {{ end }}
+
+        {{ if .Site.Params.subTitleLink }}
+        {{ range .Site.Params.subTitleLink }}
+          <a href="{{.link}}" class="small-link">{{.text}}</a>
+        {{ end }}
+        {{ end }}
+
         {{ if .Site.Params.mainMenu }}
         {{ range .Site.Params.mainMenu }}
-            <a href="{{.link}}" class="big-link">
+            <a href="{{.link}}" class="small-link">
                 {{.text}}
             </a>
         {{ end }}
 
         {{ else }}
         {{ range .Site.Sections }}
-            <a href="{{.RelPermalink}}" class="big-link">
+            <a href="{{.RelPermalink}}" class="small-link">
                 {{.Title | markdownify}}
             </a>
         {{ end }}

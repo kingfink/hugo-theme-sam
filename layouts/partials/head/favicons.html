@@ -1,3 +1,6 @@
 {{ with .Site.Params.favicon }}
-<link rel="shortcut icon" href="{{ . | relURL }}">
+
+<link rel="icon" href="{{ . | relURL }}" type="image/x-icon" />
+<link rel="shortcut icon" href="{{ . | relURL }}" type="image/x-icon" />
+
 {{ end }}

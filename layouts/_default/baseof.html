@@ -29,7 +29,7 @@
         {{ end }}
 
         {{ block "bottom-menu" . }}
-        {{ if .Site.Params.mainMenu }}
+        {{ if .Site.Params.subTitleLink }}
         <nav role="navigation" class="flex-container bottom-menu">
             {{ partial "bottom_menu.html" (dict "Page" . "show_back_menu_item" false) }}
         </nav>
