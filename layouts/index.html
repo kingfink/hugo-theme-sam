@@ -21,43 +21,46 @@
         {{ end }}
     {{ end }}
 
-    <nav role="navigation" class="flex-container" id="splash">
+    <main class="wrap">
 
-        {{ if .Site.Params.headline }}
-        {{ range .Site.Params.headline }}
-          <p class="big-link">{{.text}}</p>
-        {{ end }}
-        {{ end }}
+      <nav role="navigation" class="flex-container" id="splash">
 
-        {{ if .Site.Params.headline }}
-        {{ range .Site.Params.subTitle }}
-          <p class="subtitle-link">{{.text}}</p>
+          {{ if .Site.Params.headline }}
+          {{ range .Site.Params.headline }}
+            <p class="big-link">{{.text}}</p>
+          {{ end }}
+          {{ end }}
 
-        {{ end }}
-        {{ end }}
+          {{ if .Site.Params.headline }}
+          {{ range .Site.Params.subTitle }}
+            <p class="subtitle-link">{{.text}}</p>
 
-        {{ if .Site.Params.subTitleLink }}
-        {{ range .Site.Params.subTitleLink }}
-          <a href="{{.link}}" class="small-link">{{.text}}</a>
-        {{ end }}
-        {{ end }}
+          {{ end }}
+          {{ end }}
 
-        {{ if .Site.Params.mainMenu }}
-        {{ range .Site.Params.mainMenu }}
-            <a href="{{.link}}" class="small-link">
-                {{.text}}
-            </a>
-        {{ end }}
+          {{ if .Site.Params.subTitleLink }}
+          {{ range .Site.Params.subTitleLink }}
+            <a href="{{.link}}" class="small-link">{{.text}}</a>
+          {{ end }}
+          {{ end }}
 
-        {{ else }}
-        {{ range .Site.Sections }}
-            <a href="{{.RelPermalink}}" class="small-link">
-                {{.Title | markdownify}}
-            </a>
-        {{ end }}
-        {{ end }}
+          {{ if .Site.Params.mainMenu }}
+          {{ range .Site.Params.mainMenu }}
+              <a href="{{.link}}" class="small-link">
+                  {{.text}}
+              </a>
+          {{ end }}
 
-    </nav>
+          {{ else }}
+          {{ range .Site.Sections }}
+              <a href="{{.RelPermalink}}" class="small-link">
+                  {{.Title | markdownify}}
+              </a>
+          {{ end }}
+          {{ end }}
+
+      </nav>
+    </main>
 </body>
 
 </html>
